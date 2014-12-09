@@ -21,7 +21,7 @@ public class BombDropping : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyUp (KeyCode.Space)) { dropBomb(eBombTypes.BOMB_TYPE_STANDARD); }
-	
+		if (Input.GetKeyUp (KeyCode.A)) { dropBomb(eBombTypes.BOMB_TYPE_V2); }
 	}
 
 	void dropBomb(eBombTypes bombType)
@@ -35,6 +35,13 @@ public class BombDropping : MonoBehaviour {
 				clone.velocity = transform.TransformDirection (Vector3.forward * 10);
 				break;
 			}
+		case eBombTypes.BOMB_TYPE_V2:
+		{
+			Rigidbody clone;
+			clone = Instantiate (rb_v2_bomb, transform.position, transform.rotation) as Rigidbody;
+			clone.velocity = transform.TransformDirection (Vector3.forward * 10);
+			break;
+		}
 			default:
 			{
 				break;
