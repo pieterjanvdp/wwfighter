@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BombDropping.cs" />
+     <Compile Include="Assets\Explode.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\PlaneMovement.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />

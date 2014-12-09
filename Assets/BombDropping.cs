@@ -32,7 +32,7 @@ public class BombDropping : MonoBehaviour {
 			{				
 				Rigidbody clone;
 				clone = Instantiate (rb_standard_bomb, transform.position, transform.rotation) as Rigidbody;
-				clone.velocity = transform.TransformDirection (Vector3.forward * 10);
+				//GEEFT ERROR IN CONSOLEclone.velocity = transform.TransformDirection (Vector3.forward * 10);
 				break;
 			}
 		case eBombTypes.BOMB_TYPE_V2:
