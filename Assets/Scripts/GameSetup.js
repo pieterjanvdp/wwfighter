@@ -4,6 +4,10 @@ var mainCam : Camera;
 
 var rightWall : BoxCollider;
 
+function Awake () {
+	Application.targetFrameRate = 60;
+}
+
 function Start () {
 
 rightWall.size = new Vector3(mainCam.ScreenToWorldPoint (new Vector3 (Screen.width * 2f, 0f, 0f)).x, 1f, 1f);
