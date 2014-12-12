@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 7805ed4a3aa4d4c7396fdd0ddd5acde0
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tank: {fileID: 400032, guid: cd772585848594124b7c1ec3045626ff, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -1,10 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/WhereIsMahPlane.js">
     <Files>
       <File FileName="Assets/Explode.cs" Line="10" Column="1" />
       <File FileName="Assets/BombDropping.cs" Line="1" Column="1" />
       <File FileName="Assets/WhereIsMahPlane.js" Line="15" Column="3" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BombDropping.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Tiling.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/BombDropping.cs" Line="34" Column="37" />
+>>>>>>> Stashed changes
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

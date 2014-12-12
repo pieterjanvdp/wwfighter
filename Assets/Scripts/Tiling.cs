@@ -11,6 +11,7 @@ public class Tiling : MonoBehaviour {
 	
 	public bool hasATopBuddy = false;
 	public bool hasABottomBuddy = false;
+
 	
 	
 	private float spriteWidth = 0f; 
@@ -68,4 +69,43 @@ public class Tiling : MonoBehaviour {
 			newBuddy.GetComponent<Tiling>().hasATopBuddy = true;
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
