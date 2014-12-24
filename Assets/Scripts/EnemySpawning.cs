@@ -5,11 +5,15 @@ public class EnemySpawning : MonoBehaviour {
 
 	public Transform tank;
 
+	private GameObject fighterPlane;
+	private GameObject mainTerrain;
+
 
 	// Use this for initialization
 	void Start () {
-		createEnemies ();
-	
+		fighterPlane = GameObject.FindWithTag ("FighterPlane");
+		mainTerrain = GameObject.FindWithTag ("Terrain");
+		createEnemies ();	
 	}
 	
 	// Update is called once per frame
@@ -35,10 +39,13 @@ public class EnemySpawning : MonoBehaviour {
 	
 	void createTanks()
 	{
-		GameObject fighterPlane = GameObject.FindWithTag ("FighterPlane");
-		GameObject mainTerrain = GameObject.FindWithTag ("Terrain");
-		Vector3 tankPos = new Vector3 (fighterPlane.transform.position.x + 1, mainTerrain.transform.position.y, fighterPlane.transform.position.z + 0.5F);
-		Rigidbody clone;
-		clone = Instantiate (tank, tankPos, mainTerrain.transform.rotation) as Rigidbody;
+		Transform clone;
+		for (int i = 0; i < 3; i++) {
+			Vector3 tankPos = new Vector3 (fighterPlane.transform.position.x + 85F, mainTerrain.transform.position.y + 5F, fighterPlane.transform.position.z + (0.5F * (i+1) + 2F));
+			clone = Instantiate (tank, tankPos, transform.rotation) as Transform;
+			Debug.Log (clone);
+			clone.Rotate (new Vector3 (0, 270, 0));
+		}
+
 	}
 }
