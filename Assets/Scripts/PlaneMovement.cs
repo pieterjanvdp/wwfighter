@@ -4,10 +4,11 @@ using System.Collections;
 public class PlaneMovement : MonoBehaviour {
 
 	public float flySpeed = 0.2F;
+	public Camera mainCam;
 
 	// Use this for initialization
 	void Start () {
-	
+		mainCam = GameObject.FindWithTag ("MainCamera").camera;
 	}
 	
 	// Update is called once per frame
@@ -20,12 +21,15 @@ public class PlaneMovement : MonoBehaviour {
 
 	void FlyForward()
 	{
-		transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z + flySpeed);
+		Vector3 viewPos = mainCam.WorldToViewportPoint(transform.position);//transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z - 0.1f);
+		if(viewPos.y <= 0.9) transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z + flySpeed);
 	}
 
 	void FlyBackwards()
 	{
-		transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z - flySpeed);
+		Vector3 viewPos = mainCam.WorldToViewportPoint(transform.position);		
+		if(viewPos.y < 0.1) transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z + 0.1f);
+		else transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.z - flySpeed);
 	}
 
 	void StrafeLeft()

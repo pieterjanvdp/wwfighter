@@ -7,12 +7,14 @@ public class EnemySpawning : MonoBehaviour {
 
 	private GameObject fighterPlane;
 	private GameObject mainTerrain;
+	private GameObject bunker;
 
 
 	// Use this for initialization
 	void Start () {
 		fighterPlane = GameObject.FindWithTag ("FighterPlane");
 		mainTerrain = GameObject.FindWithTag ("Terrain");
+		bunker = GameObject.FindWithTag ("Bunker");
 		createEnemies ();	
 	}
 	
@@ -29,7 +31,12 @@ public class EnemySpawning : MonoBehaviour {
 
 	void createBunkers()
 	{
-	
+		Transform clone;
+		Random rnd = new Random ();
+		for (int i = 0; i < 3; i++) {
+			Vector3 bunkerPos = new Vector3 (transform.position.x + Random.Range (80F, 155), transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
+			clone = Instantiate (bunker, bunkerPos, transform.rotation) as Transform;
+		}
 	}
 
 	void createAntiAir()
@@ -41,9 +48,8 @@ public class EnemySpawning : MonoBehaviour {
 	{
 		Transform clone;
 		for (int i = 0; i < 3; i++) {
-			Vector3 tankPos = new Vector3 (fighterPlane.transform.position.x + 85F, mainTerrain.transform.position.y + 5F, fighterPlane.transform.position.z + (0.5F * (i+1) + 2F));
+			Vector3 tankPos = new Vector3 (transform.position.x + 160F, transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
 			clone = Instantiate (tank, tankPos, transform.rotation) as Transform;
-			Debug.Log (clone);
 			clone.Rotate (new Vector3 (0, 270, 0));
 		}
 

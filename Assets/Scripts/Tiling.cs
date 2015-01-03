@@ -14,7 +14,7 @@ public class Tiling : MonoBehaviour {
 
 	
 	
-	private float spriteWidth = 0f; 
+	//private float spriteWidth = 0f; 
 	private float spriteHeight = 0f;//the width of our element
 	private Camera cam;
 	private Transform myTransform;
@@ -26,7 +26,7 @@ public class Tiling : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		spriteWidth = 100;
+		//spriteWidth = 100;
 		spriteHeight = 100;
 		
 	}
