@@ -6,6 +6,8 @@ public class BunkerHealth : MonoBehaviour {
 	public int health = 100;
 	public GameObject explosion;
 	
+	public ScoreManager scoreManager;
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -21,12 +23,12 @@ public class BunkerHealth : MonoBehaviour {
 		if (col.gameObject.tag == "Bomb") 
 		{
 			Destroy (col.gameObject);
-			Instantiate (explosion, transform.position, transform.rotation);
+			//Instantiate (explosion, transform.position, transform.rotation);
+			scoreManager.KillBunker ();
 			health -= 51;
-			Debug.Log ("giovanni");
 			if (health <= 0)
 			{
-				Destroy(this.gameObject);
+				Destroy(this.gameObject);				
 			}
 		}
 	}
