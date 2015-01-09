@@ -38,8 +38,8 @@ public class Tiling : MonoBehaviour {
 			//calculate the cameras extend (half of width) of what the camera can see in world coordinates
 			float camHorizontalExtend = cam.orthographicSize * Screen.width/Screen.height;
 			
-			// calculate the x position where the camera can see the edge of the sprite
-			float edgeVisiblePositionTop = (myTransform.position.z + spriteHeight/2) - camHorizontalExtend;
+			// calculate the x position where the camera can see the edge of the sprite 
+			float edgeVisiblePositionTop = (myTransform.position.z /*+ spriteHeight/2*/ ) - camHorizontalExtend;
 			float edgeVisiblePositionBottom = (myTransform.position.z - spriteHeight/2) + camHorizontalExtend;
 			
 			//check if we can see edge of element minus offset , make new buddy if we can

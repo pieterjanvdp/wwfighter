@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AimAtTarget.cs" />
      <Compile Include="Assets\Scripts\BombDropping.cs" />
      <Compile Include="Assets\Scripts\BunkerHealth.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />

@@ -34,7 +34,7 @@ public class EnemySpawning : MonoBehaviour {
 		Transform clone;
 		Random rnd = new Random ();
 		for (int i = 0; i < 3; i++) {
-			Vector3 bunkerPos = new Vector3 (transform.position.x + Random.Range (80F, 155), transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
+			Vector3 bunkerPos = new Vector3 (transform.position.x + Random.Range (100F, 165), transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
 			clone = Instantiate (bunker, bunkerPos, transform.rotation) as Transform;
 		}
 	}
@@ -48,7 +48,7 @@ public class EnemySpawning : MonoBehaviour {
 	{
 		Transform clone;
 		for (int i = 0; i < 3; i++) {
-			Vector3 tankPos = new Vector3 (transform.position.x + 160F, transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
+			Vector3 tankPos = new Vector3 (transform.position.x + 180F, transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
 			clone = Instantiate (tank, tankPos, transform.rotation) as Transform;
 			clone.Rotate (new Vector3 (0, 270, 0));
 		}
