@@ -18,3 +18,4 @@ rightWall.center = new Vector3(0f, mainCam.ScreenToWorldPoint (new Vector3 (0f, 
 function Update () {
 
 }
+
