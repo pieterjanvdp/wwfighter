@@ -23,8 +23,9 @@ public class AAHealth : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Bomb") 
+		if (col.gameObject.tag == "Bomb" || col.gameObject.tag == "V2") 
 		{
+			if (col.gameObject.tag == "V2") scoreManager.v2Impact();
 			Instantiate(explosion, transform.position, transform.rotation);
 			health -= 51;
 			if (health <= 0)

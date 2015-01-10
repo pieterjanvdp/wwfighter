@@ -49,7 +49,7 @@
      <Compile Include="Assets\AAHealth.cs" />
      <Compile Include="Assets\Scripts\AAFire.cs" />
      <Compile Include="Assets\Scripts\AimAtTarget.cs" />
-     <Compile Include="Assets\Scripts\BombDropping.cs" />
+     <Compile Include="Assets\Scripts\BombDroppingScript.cs" />
      <Compile Include="Assets\Scripts\BunkerHealth.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\EnemySpawning.cs" />
@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\TankHealth.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
      <Compile Include="Assets\Scripts\UIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\V2_Explode.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
