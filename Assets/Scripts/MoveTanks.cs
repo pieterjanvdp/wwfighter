@@ -67,7 +67,6 @@ public class MoveTanks : MonoBehaviour {
 		isRotating = true;
 		timesTurned = 0;
 		float temp = Random.Range (0, 10);
-		Debug.Log ("getalletje: " + temp);
 		if (temp > 5.0)
 			rotationDirection = 0.3F;
 		else

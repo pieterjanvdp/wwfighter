@@ -3,14 +3,13 @@ using System.Collections;
 
 public class BunkerHealth : MonoBehaviour {
 	
-	public int health = 100;
+	public int health = 120;
 	public GameObject explosion;
-	
-	public ScoreManager scoreManager;
-	
+	private ScoreManagerScript scoreManager;
+		
 	// Use this for initialization
 	void Start () {
-		
+		scoreManager = (ScoreManagerScript) GameObject.Find("ScoreManager").GetComponent("ScoreManagerScript");
 	}
 	
 	// Update is called once per frame
@@ -22,14 +21,15 @@ public class BunkerHealth : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Bomb") 
 		{
-			Destroy (col.gameObject);
-			//Instantiate (explosion, transform.position, transform.rotation);
-			scoreManager.KillBunker ();
+			Instantiate(explosion, transform.position, transform.rotation);
 			health -= 51;
 			if (health <= 0)
 			{
-				Destroy(this.gameObject);				
+				for (int i = 0; i < 5; i++) Instantiate(explosion, transform.position, transform.rotation);
+				Destroy(this.gameObject);
+				scoreManager.KillBunker ();
 			}
+			Destroy (col.gameObject);
 		}
 	}
 }

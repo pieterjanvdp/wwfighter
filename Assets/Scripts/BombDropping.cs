@@ -22,30 +22,36 @@ public class BombDropping : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyUp (KeyCode.Space)) { dropBomb(eBombTypes.BOMB_TYPE_STANDARD); }
 		if (Input.GetKeyUp (KeyCode.A)) { dropBomb(eBombTypes.BOMB_TYPE_V2); }
+		if (Input.GetKeyUp (KeyCode.M)) { dropBomb(eBombTypes.BOMB_TYPE_MUSTARD); }
 	}
 
 	void dropBomb(eBombTypes bombType)
 	{
+		Rigidbody clone;
 		switch (bombType) 
 		{
 			case eBombTypes.BOMB_TYPE_STANDARD:
-			{				
-				Rigidbody clone;
+			{					
 				clone = Instantiate (rb_standard_bomb, transform.position, transform.rotation) as Rigidbody;
 				//GEEFT ERROR IN CONSOLEclone.velocity = transform.TransformDirection (Vector3.forward * 10);
 				break;
 			}
-		case eBombTypes.BOMB_TYPE_V2:
-		{
-			Rigidbody clone;
-			clone = Instantiate (rb_v2_bomb, transform.position, transform.rotation) as Rigidbody;
-			clone.velocity = transform.TransformDirection (Vector3.forward * 10);
-			break;
-		}
+			case eBombTypes.BOMB_TYPE_V2:
+			{
+				clone = Instantiate (rb_v2_bomb, transform.position, transform.rotation) as Rigidbody;
+				//clone.velocity = transform.TransformDirection (Vector3.forward * 10);
+				break;
+			}
+			case eBombTypes.BOMB_TYPE_MUSTARD:
+			{
+				Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y - 10F, transform.position.z);
+				clone = Instantiate (rb_mustard_bomb, spawnPosition, transform.rotation) as Rigidbody;
+				//clone.velocity = transform.TransformDirection (Vector3.forward * 10);
+				break;
+			}
 			default:
 			{
 				break;
-				// DO SOMETHING SHEEIIITTTT
 			}
 		}
 	}

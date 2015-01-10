@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 15824223244df7b4caf366709f061c67
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - exclamationMark: {fileID: 175058, guid: baba3df1bee78f34bac9e491e307b139, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

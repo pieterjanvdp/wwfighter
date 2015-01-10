@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemySpawning : MonoBehaviour {
 
 	public Transform tank;
+	public GameObject antiAir;
 
 	private GameObject fighterPlane;
 	private GameObject mainTerrain;
@@ -32,7 +33,6 @@ public class EnemySpawning : MonoBehaviour {
 	void createBunkers()
 	{
 		Transform clone;
-		Random rnd = new Random ();
 		for (int i = 0; i < 3; i++) {
 			Vector3 bunkerPos = new Vector3 (transform.position.x + Random.Range (100F, 165), transform.position.y + 5F, transform.position.z + (20F * (i+1) + 4F));
 			clone = Instantiate (bunker, bunkerPos, transform.rotation) as Transform;
@@ -41,7 +41,11 @@ public class EnemySpawning : MonoBehaviour {
 
 	void createAntiAir()
 	{
-	
+		Transform clone;
+		for (int i = 0; i < 1; i++) {
+			Vector3 aaPos = new Vector3 (transform.position.x + 80F, transform.position.y - 5F, transform.position.z + Random.Range (-40F, -20F));
+			clone = Instantiate (antiAir, aaPos, transform.rotation) as Transform;
+		}
 	}
 	
 	void createTanks()

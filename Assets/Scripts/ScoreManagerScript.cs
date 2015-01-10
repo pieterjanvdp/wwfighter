@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScoreManager : MonoBehaviour {
+public class ScoreManagerScript : MonoBehaviour {
 
 
 	private int playerScore;
@@ -17,6 +17,11 @@ public class ScoreManager : MonoBehaviour {
 	void Update () {
 		
 	}
+	
+	public int getKills()
+	{
+		return playerScore;
+	}
 
 	public void KillBunker()
 	{
@@ -25,12 +30,18 @@ public class ScoreManager : MonoBehaviour {
 	
 	public void KillTank()
 	{
+		addKills(2);
+	}
+	
+	public void KillAA()
+	{
 		addKills(1);
 	}
 	
 	private void addKills(int kills)
 	{
 		playerScore += kills;
-		text_kills.text = "Kills: " + kills;
+		Debug.Log ("Player Score: " + playerScore);
+		//text_kills.text = "Kills: " + kills;
 	}
 }

@@ -46,16 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AimAtTarget.cs" />
+     <Compile Include="Assets\AAHealth.cs" />
+     <Compile Include="Assets\Scripts\AAFire.cs" />
+     <Compile Include="Assets\Scripts\AimAtTarget.cs" />
      <Compile Include="Assets\Scripts\BombDropping.cs" />
      <Compile Include="Assets\Scripts\BunkerHealth.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\EnemySpawning.cs" />
      <Compile Include="Assets\Scripts\Explode.cs" />
+     <Compile Include="Assets\Scripts\ExplodeMustard.cs" />
      <Compile Include="Assets\Scripts\MoveTanks.cs" />
+     <Compile Include="Assets\Scripts\PlaneHealthScript.cs" />
      <Compile Include="Assets\Scripts\PlaneMovement.cs" />
      <Compile Include="Assets\Scripts\RotatePropeller.cs" />
-     <Compile Include="Assets\Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
+     <Compile Include="Assets\Scripts\TankHealth.cs" />
      <Compile Include="Assets\Scripts\Tiling.cs" />
      <Compile Include="Assets\Scripts\UIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
