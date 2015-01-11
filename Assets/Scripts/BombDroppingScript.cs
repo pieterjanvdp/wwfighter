@@ -50,6 +50,20 @@ public class BombDroppingScript : MonoBehaviour {
 		canDrop = true;	
 	}
 
+	public void dropStandard(){
+		dropBomb (eBombTypes.BOMB_TYPE_STANDARD);
+
+	}
+
+	public void dropV2(){
+		dropBomb (eBombTypes.BOMB_TYPE_V2);
+
+	}
+
+	public void dropMustard(){
+		dropBomb (eBombTypes.BOMB_TYPE_MUSTARD);
+	}
+
 	void dropBomb(eBombTypes bombType)
 	{
 		Rigidbody clone;
@@ -59,7 +73,7 @@ public class BombDroppingScript : MonoBehaviour {
 			{		
 				if (canDrop)
 				{
-					clone = Instantiate (rb_standard_bomb, transform.position, transform.rotation) as Rigidbody;
+				clone = Instantiate (rb_standard_bomb, plane.transform.position, plane.transform.rotation) as Rigidbody;
 					canDrop = false;
 					InvokeRepeating("handleDelay", bombDropDelay, 10);
 				}
@@ -68,7 +82,7 @@ public class BombDroppingScript : MonoBehaviour {
 			case eBombTypes.BOMB_TYPE_V2:
 			{
 				if (v2bombs <= 0) break;
-				clone = Instantiate (rb_v2_bomb, transform.position, transform.rotation) as Rigidbody;
+			clone = Instantiate (rb_v2_bomb, plane.transform.position, plane.transform.rotation) as Rigidbody;
 				v2bombs--;
 				break;
 			}
@@ -78,7 +92,7 @@ public class BombDroppingScript : MonoBehaviour {
 				if (mustardGasBombs <= 0) break;
 				Debug.Log ("na het check");
 				Vector3 spawnPosition = new Vector3(plane.transform.position.x, plane.transform.position.y - 10F, plane.transform.position.z);
-				clone = Instantiate (rb_mustard_bomb, spawnPosition, transform.rotation) as Rigidbody;
+			clone = Instantiate (rb_mustard_bomb, spawnPosition, plane.transform.rotation) as Rigidbody;
 				//clone.velocity = transform.TransformDirection (Vector3.forward * 10);
 				mustardGasBombs--;
 				break;
