@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ScoreManagerScript : MonoBehaviour {
 
 
 	private int playerScore;
-	public GUIText text_kills;
+	public Text scoreGUIText;
 	private int killCounter = 0;
 	private BombDroppingScript bombDropping;
 
@@ -13,6 +14,7 @@ public class ScoreManagerScript : MonoBehaviour {
 	void Start () {
 		playerScore = 0;	
 		bombDropping = (BombDroppingScript) GameObject.Find("BombDropping").GetComponent("BombDroppingScript");
+		scoreGUIText.text = "0  kills";
 	}
 	
 	// Update is called once per frame
@@ -64,12 +66,10 @@ public class ScoreManagerScript : MonoBehaviour {
 
 		if (playerScore > 22)
 		{
-			Debug.Log ("oke hier");
 			bombDropping.giveMustardGasBomb();
-			Debug.Log ("en nu hier");
 		}
 			
 		Debug.Log ("Player Score: " + playerScore);
-		//text_kills.text = "Kills: " + kills;
+		scoreGUIText.text = playerScore + "  kills";
 	}
 }
