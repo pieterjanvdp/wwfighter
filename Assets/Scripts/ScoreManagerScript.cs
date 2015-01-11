@@ -63,12 +63,8 @@ public class ScoreManagerScript : MonoBehaviour {
 	{
 		playerScore += kills;
 		if (Mathf.Repeat (playerScore, 20) == 0) bombDropping.givev2Bomb();
+		if (Mathf.Repeat (playerScore, 40) == 0) bombDropping.giveMustardGasBomb();
 
-		if (playerScore > 22)
-		{
-			bombDropping.giveMustardGasBomb();
-		}
-			
 		Debug.Log ("Player Score: " + playerScore);
 		scoreGUIText.text = playerScore + "  kills";
 	}

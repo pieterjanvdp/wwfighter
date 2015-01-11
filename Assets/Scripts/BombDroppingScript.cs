@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BombDroppingScript : MonoBehaviour {
@@ -6,6 +7,7 @@ public class BombDroppingScript : MonoBehaviour {
 	public Transform rb_standard_bomb;
 	public Transform rb_v2_bomb;
 	public Transform rb_mustard_bomb;
+	public Text txt_bombStack;
 	
 	public float bombDropDelay = 0.5F;
 	private bool canDrop = true;
@@ -25,16 +27,24 @@ public class BombDroppingScript : MonoBehaviour {
 		v2bombs = 0;
 		mustardGasBombs = 0;
 		plane = (GameObject) GameObject.FindGameObjectWithTag("FighterPlane");
+		UpdateBombStackText();
+	}
+	
+	private void UpdateBombStackText()
+	{
+		txt_bombStack.text = "Mustard: " + mustardGasBombs + "\nV2: " + v2bombs;
 	}
 	
 	public void givev2Bomb()
 	{
 		v2bombs += 1;
+		UpdateBombStackText();
 	}
 
-	public void giveMustardGasBomb() {
+	public void giveMustardGasBomb() 
+	{
 		mustardGasBombs += 1;
-		Debug.Log ("done");
+		UpdateBombStackText();
 	}
 	
 	// Update is called once per frame
@@ -84,6 +94,7 @@ public class BombDroppingScript : MonoBehaviour {
 				if (v2bombs <= 0) break;
 			clone = Instantiate (rb_v2_bomb, plane.transform.position, plane.transform.rotation) as Rigidbody;
 				v2bombs--;
+				UpdateBombStackText();
 				break;
 			}
 			case eBombTypes.BOMB_TYPE_MUSTARD:
@@ -95,6 +106,7 @@ public class BombDroppingScript : MonoBehaviour {
 			clone = Instantiate (rb_mustard_bomb, spawnPosition, plane.transform.rotation) as Rigidbody;
 				//clone.velocity = transform.TransformDirection (Vector3.forward * 10);
 				mustardGasBombs--;
+				UpdateBombStackText();
 				break;
 			}
 			default:
