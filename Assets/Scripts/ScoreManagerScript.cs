@@ -64,8 +64,8 @@ public class ScoreManagerScript : MonoBehaviour {
 	private void addKills(int kills)
 	{
 		playerScore += kills;
-		if (Mathf.Repeat (playerScore, 20) == 0) v2bombs = v2bombs+ 1;
-		if (Mathf.Repeat (playerScore, 40) == 0) mustardGasBombs = mustardGasBombs + 1;
+		if (playerScore % 10 == 0) v2bombs = v2bombs+ 1;
+		if (playerScore % 20 == 0) mustardGasBombs = mustardGasBombs + 1;
 
 		Debug.Log ("Player Score: " + playerScore);
 		scoreGUIText.text = playerScore + "  kills";
