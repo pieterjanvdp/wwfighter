@@ -9,6 +9,8 @@ public class ScoreManagerScript : MonoBehaviour {
 	public Text scoreGUIText;
 	private int killCounter = 0;
 	private BombDroppingScript bombDropping;
+	public static int v2bombs = 0;
+	public static int mustardGasBombs = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -62,8 +64,8 @@ public class ScoreManagerScript : MonoBehaviour {
 	private void addKills(int kills)
 	{
 		playerScore += kills;
-		if (Mathf.Repeat (playerScore, 20) == 0) bombDropping.givev2Bomb();
-		if (Mathf.Repeat (playerScore, 40) == 0) bombDropping.giveMustardGasBomb();
+		if (Mathf.Repeat (playerScore, 20) == 0) v2bombs = v2bombs+ 1;
+		if (Mathf.Repeat (playerScore, 40) == 0) mustardGasBombs = mustardGasBombs + 1;
 
 		Debug.Log ("Player Score: " + playerScore);
 		scoreGUIText.text = playerScore + "  kills";

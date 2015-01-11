@@ -11,8 +11,8 @@ public class BombDroppingScript : MonoBehaviour {
 	
 	public float bombDropDelay = 0.5F;
 	private bool canDrop = true;
-	private int v2bombs;
-	private int mustardGasBombs;
+
+
 	
 	private GameObject plane;
 
@@ -24,29 +24,17 @@ public class BombDroppingScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		v2bombs = 0;
-		mustardGasBombs = 0;
 		plane = (GameObject) GameObject.FindGameObjectWithTag("FighterPlane");
-		UpdateBombStackText();
-	}
-	
-	private void UpdateBombStackText()
-	{
-		txt_bombStack.text = "Mustard: " + mustardGasBombs + "\nV2: " + v2bombs;
-	}
-	
-	public void givev2Bomb()
-	{
-		v2bombs += 1;
-		UpdateBombStackText();
 	}
 
-	public void giveMustardGasBomb() 
-	{
-		mustardGasBombs += 1;
-		UpdateBombStackText();
-	}
+
+	void OnGUI(){
+		txt_bombStack.text = "Mustard: " + ScoreManagerScript.mustardGasBombs + "\nV2: " + ScoreManagerScript.v2bombs;
 	
+		}
+
+	
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyUp (KeyCode.Space)) { dropBomb(eBombTypes.BOMB_TYPE_STANDARD); }
@@ -91,22 +79,24 @@ public class BombDroppingScript : MonoBehaviour {
 			}
 			case eBombTypes.BOMB_TYPE_V2:
 			{
-				if (v2bombs <= 0) break;
+
+				if (ScoreManagerScript.v2bombs <= 0) break;
+
 			clone = Instantiate (rb_v2_bomb, plane.transform.position, plane.transform.rotation) as Rigidbody;
-				v2bombs--;
-				UpdateBombStackText();
+				ScoreManagerScript.v2bombs--;
+	
 				break;
 			}
 			case eBombTypes.BOMB_TYPE_MUSTARD:
 			{
-				Debug.Log ("voor het check " + mustardGasBombs);
-				if (mustardGasBombs <= 0) break;
+	
+				if (ScoreManagerScript.mustardGasBombs <= 0) break;
 				Debug.Log ("na het check");
 				Vector3 spawnPosition = new Vector3(plane.transform.position.x, plane.transform.position.y - 10F, plane.transform.position.z);
 			clone = Instantiate (rb_mustard_bomb, spawnPosition, plane.transform.rotation) as Rigidbody;
 				//clone.velocity = transform.TransformDirection (Vector3.forward * 10);
-				mustardGasBombs--;
-				UpdateBombStackText();
+			ScoreManagerScript.mustardGasBombs--;
+		
 				break;
 			}
 			default:
