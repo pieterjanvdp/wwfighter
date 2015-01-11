@@ -6,6 +6,8 @@ public class PlaneMovement : MonoBehaviour {
 	public float flySpeed = 0.2F;
 	public Camera mainCam;
 
+
+
 	// Use this for initialization
 	void Start () {
 		mainCam = GameObject.FindWithTag ("MainCamera").camera;
